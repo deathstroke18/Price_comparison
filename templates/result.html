@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Prices</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        padding-left: 20px;
+      }
+      h2 {
+            padding-left: 70px;
+            padding-bottom: 20px;
+        font-size: 30px;
+      }
+      .product-container {
+        width: 45%;
+        padding-left: 20px; /* Increase the left padding */
+      }
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 20px;
+      }
+      .product-name {
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+      .price-amazon {
+        color: #e67e22;
+        padding-bottom: 10px;
+      }
+      .price-flipkart {
+        color: #3498db;
+        padding-bottom: 10px;
+
+      }
+      .no-price {
+        color: #999;
+      }
+      .product-container + .product-container {
+        margin-left: 60px;
+      }
+      #amazon-container {
+        /* Add any specific styling for the Amazon container here */
+        padding-right:50px;
+      }
+      #flipkart-container {
+        /* Add any specific styling for the Flipkart container here */
+        padding-left:300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="product-container" id="amazon-container">
+        <h2>Amazon</h2>
+        <table>
+          <tr>
+            <th class="title">Product Name</th>
+            <th class="title">Price</th>
+          </tr>
+          {% for product in amazon_products %}
+          <tr>
+            <td class="product-name">{{ product['name'] }}</td>
+            <td class="price-amazon{% if product['price'] is none %} no-price{% endif %}">
+              {% if product['price'] is none %}N/A{% else %}{{ product['price'] }}{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="product-container" id="flipkart-container">
+        <h2>Flipkart</h2>
+        <table>
+          <tr>
+            <th class="title">Product Name</th>
+            <th class="title">Price</th>
+          </tr>
+          {% for product in flipkart_products %}
+          <tr>
+            <td class="product-name">{{ product['name'] }}</td>
+            <td class="price-flipkart{% if product['price'] is none %} no-price{% endif %}">
+              {% if product['price'] is none %}N/A{% else %}{{ product['price'] }}{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

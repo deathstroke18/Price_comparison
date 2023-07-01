@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Price Comparison</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+      .input-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .input-container input[type="text"] {
+        width: 300px;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      .input-container input[type="submit"] {
+        padding: 8px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Product Price Comparison</h1>
+      <form method="POST" action="/">
+        <div class="input-container">
+          <input type="text" name="product_name" placeholder="Enter product name" required>
+          <input type="submit" value="Search">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
