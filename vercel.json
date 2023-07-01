@@ -3,7 +3,18 @@
     "builds": [
       {
         "src": "app.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "pythonVersion": "3.8"
+        },
+        "env": {
+          "VERCEL_BUILD_ID": "",
+          "VERCEL_GITHUB_COMMIT_SHA": "",
+          "VERCEL_GITHUB_DEPLOYMENT": "",
+          "VERCEL_GITHUB_COMMIT_REF": ""
+        },
+        "installCommand": "pip install -r requirements.txt"
       }
     ],
     "routes": [
